@@ -1,10 +1,9 @@
 package com.estudo.cursoudemy.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +14,8 @@ public class Categorias implements Serializable {
     private Integer id;
 
     private String nome;
+
+    private List<Produto> produtos = new ArrayList<>();
 
     public Categorias() {
     }
@@ -38,6 +39,15 @@ public class Categorias implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @ManyToMany(mappedBy = "categorias")
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     @Override
