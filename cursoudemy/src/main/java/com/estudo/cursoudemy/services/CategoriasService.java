@@ -23,4 +23,8 @@ public class CategoriasService {
         Optional<Categorias> categorias = categoriasRepository.findById(id);
         return  categorias;
     }
+
+    public Categorias novo(){
+        return null;
+    }
 }
