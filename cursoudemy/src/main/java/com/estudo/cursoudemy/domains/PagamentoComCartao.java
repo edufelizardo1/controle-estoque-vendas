@@ -1,10 +1,12 @@
 package com.estudo.cursoudemy.domains;
 
 import com.estudo.cursoudemy.domains.enumeration.EstadoPagamento;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import javax.persistence.Entity;
 
 @Entity
+@JsonTypeName(value = "pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento{
     private static final long serialVersionUID = 1L;
 
