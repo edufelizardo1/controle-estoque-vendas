@@ -2,6 +2,7 @@ package com.estudo.cursoudemy.services;
 
 import com.estudo.cursoudemy.domains.Endereco;
 import com.estudo.cursoudemy.repositories.EnderecoRepository;
+import com.estudo.cursoudemy.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,8 @@ public class EnderecoService {
 
     public Optional<Endereco> listarId (Integer id) {
         Optional<Endereco> endereco = enderecoRepository.findById(id);
-        return endereco;
+        return Optional.ofNullable(endereco.orElseThrow(()-> new ObjectNotFoundException(
+                "Objeto não encontrado! Id: " + id + ", Tipo: " + Endereco.class.getName()
+        )));
     }
 }
