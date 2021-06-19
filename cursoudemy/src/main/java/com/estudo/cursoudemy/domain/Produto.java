@@ -1,5 +1,7 @@
 package com.estudo.cursoudemy.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,11 +16,12 @@ public class Produto implements Serializable {
     private Integer id;
     private String nome;
 
-    @ManyToMany
-    @JoinTable(name = "PEODUTO_CATEGORIA",
-    joinColumns = @JoinColumn(name = "produto_id"),
-    inverseJoinColumns = @JoinColumn(name = "categoris_id"))
-    private List<Categorias> categorias = new ArrayList<>();
+//    @JsonIgnore
+//    @ManyToMany
+//    @JoinTable(name = "PEODUTO_CATEGORIA",
+//    joinColumns = @JoinColumn(name = "produto_id"),
+//    inverseJoinColumns = @JoinColumn(name = "categoris_id"))
+//    private List<Categorias> categorias = new ArrayList<>();
 
     public Produto() {
     }
@@ -44,13 +47,13 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
-    public List<Categorias> getCategorias() {
-        return categorias;
-    }
-
-    public void setCategorias(List<Categorias> categorias) {
-        this.categorias = categorias;
-    }
+//    public List<Categorias> getCategorias() {
+//        return categorias;
+//    }
+//
+//    public void setCategorias(List<Categorias> categorias) {
+//        this.categorias = categorias;
+//    }
 
     @Override
     public boolean equals(Object o) {

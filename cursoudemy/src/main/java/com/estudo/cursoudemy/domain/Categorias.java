@@ -15,8 +15,8 @@ public class Categorias implements Serializable {
 
     private String nome;
 
-    @ManyToMany(mappedBy = "categorias")
-    private List<Produto> produtos = new ArrayList<>();
+//    @ManyToMany(mappedBy = "categorias")
+//    private List<Produto> produtos = new ArrayList<>();
 
     public Categorias() {
     }
@@ -42,13 +42,13 @@ public class Categorias implements Serializable {
         this.nome = nome;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
+//    public List<Produto> getProdutos() {
+//        return produtos;
+//    }
+//
+//    public void setProdutos(List<Produto> produtos) {
+//        this.produtos = produtos;
+//    }
 
     @Override
     public boolean equals(Object o) {
