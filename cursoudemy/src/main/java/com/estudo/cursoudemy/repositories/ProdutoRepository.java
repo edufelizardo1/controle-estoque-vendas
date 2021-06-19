@@ -1,6 +1,6 @@
 package com.estudo.cursoudemy.repositories;
 
-import com.estudo.cursoudemy.domain.Produto;
+import com.estudo.cursoudemy.domains.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
