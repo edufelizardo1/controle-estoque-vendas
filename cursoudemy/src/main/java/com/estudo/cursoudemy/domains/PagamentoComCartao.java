@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import javax.persistence.Entity;
 
 @Entity
-@JsonTypeName(value = "pagamentoComCartao")
+@JsonTypeName("pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento{
     private static final long serialVersionUID = 1L;
 
@@ -15,12 +15,8 @@ public class PagamentoComCartao extends Pagamento{
     public PagamentoComCartao() {
     }
 
-    public PagamentoComCartao(Integer numeroDeParcelas) {
-        this.numeroDeParcelas = numeroDeParcelas;
-    }
-
-    public PagamentoComCartao(Integer id, EstadoPagamento estadoPagamento, Pedido pedido, Integer numeroDeParcelas) {
-        super(id, estadoPagamento, pedido);
+    public PagamentoComCartao(Integer id, EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
+        super(id, estado, pedido);
         this.numeroDeParcelas = numeroDeParcelas;
     }
 
