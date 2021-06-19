@@ -11,24 +11,19 @@ import java.util.Date;
 public class PagamentoComBoleto extends Pagamento{
     private static final long serialVersionUID = 1L;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date dataVencimento;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date datapagamento;
+    @JsonFormat(pattern="dd/MM/yyyy")
+    private Date dataPagamento;
 
-    public PagamentoComBoleto(){
+    public PagamentoComBoleto() {
     }
 
-    public PagamentoComBoleto(Date dataVencimento, Date datapagamento) {
+    public PagamentoComBoleto(Integer id, EstadoPagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+        super(id, estado, pedido);
+        this.dataPagamento = dataPagamento;
         this.dataVencimento = dataVencimento;
-        this.datapagamento = datapagamento;
-    }
-
-    public PagamentoComBoleto(Integer id, EstadoPagamento estadoPagamento, Pedido pedido, Date dataVencimento, Date datapagamento) {
-        super(id, estadoPagamento, pedido);
-        this.dataVencimento = dataVencimento;
-        this.datapagamento = datapagamento;
     }
 
     public Date getDataVencimento() {
@@ -39,11 +34,11 @@ public class PagamentoComBoleto extends Pagamento{
         this.dataVencimento = dataVencimento;
     }
 
-    public Date getDatapagamento() {
-        return datapagamento;
+    public Date getDataPagamento() {
+        return dataPagamento;
     }
 
-    public void setDatapagamento(Date datapagamento) {
-        this.datapagamento = datapagamento;
+    public void setDataPagamento(Date dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 }
