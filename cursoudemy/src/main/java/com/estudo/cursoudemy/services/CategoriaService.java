@@ -3,6 +3,7 @@ package com.estudo.cursoudemy.services;
 import com.estudo.cursoudemy.domains.Categoria;
 import com.estudo.cursoudemy.repositories.CategoriaRepository;
 import com.estudo.cursoudemy.services.exception.ObjectNotFoundException;
+import com.estudo.cursoudemy.services.form.CategoriaForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class CategoriaService {
         return Optional.ofNullable(categoria.orElseThrow(()-> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()
         )));
+    }
+
+    public Categoria salvarNovo(CategoriaForm categoriaForm) {
+        Categoria categoria = categoriaForm.converter();
+        return categoriaRepository.save(categoria);
     }
 }
